@@ -17,12 +17,12 @@
 
 2.How do you create and insert a new element into the DOM?
 Solution:
-         ```
-            -> get a parent element : const parent = document.getElementById("container");
-            -> create a new element : const newElement = document.createElement("h1");
-            -> add content : newElement.innerText = "Simple easy assignment"
-            -> append child to parent: parent.append(newElement);
-        ```    
+```
+-> get a parent element : const parent = document.getElementById("container");
+-> create a new element : const newElement = document.createElement("h1");
+-> add content : newElement.innerText = "Simple easy assignment"
+-> append child to parent: parent.append(newElement);
+ ```    
 
 
 
@@ -30,20 +30,20 @@ Solution:
 Solution:
 A mechanism where event start from target elements and then bubbles up to the parent elements, in DOM tree.
 Example : A Button clicked then:
-                           ```
-                               -> Button event runs
-                               -> parent event runs
-                               -> body event runs
-                            ```   
+```
+-> Button event runs
+-> parent event runs
+-> body event runs
+```   
 
 4. What is Event Delegation in JavaScript? Why is it useful?
 Solution:
 Event delegation is a process to use single event listener in parent elements instead of multiple evnets listener in child elements.
-                      ```
-                        -> apply event listener on parent element
-                        -> then identify the target child element using (.target() )
-                        -> then control event listener
-                      ``` 
+ ```
+ -> apply event listener on parent element
+ -> then identify the target child element using (.target() )
+ -> then control event listener
+ ``` 
 
  Usef because:
  ```
