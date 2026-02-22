@@ -5,12 +5,9 @@
      const dash_all = document.getElementById("dash-all");
 
      dash_all.innerText = total_job.length;
-
      const available_job = document.getElementById("available_job");
-     available_job.innerText = total_job.length
-
-
-        
+     available_job.innerText = total_job.length ; 
+          
 
 //show/hidden of ALl-Interview-Button
 function showOnly(id){
@@ -26,8 +23,6 @@ function showOnly(id){
     const selected = document.getElementById(id);
     selected.classList.remove("hidden");
 }
-
-
 //click on interview button of job-card
    function clickInterview(id,idd,iddd){
      //1-display interview status on card
@@ -35,6 +30,12 @@ function showOnly(id){
        selected.classList.remove("hidden");
        selected.innerText = "INTERVIEW";
       
+       const reject = document.getElementById("rejected");
+       const reject_check = reject.querySelector(`#${idd}`);
+       if(reject_check){
+           reject_check.remove();
+       }
+    
      //2-add it on interview section
         const int_job = document.getElementById(iddd);
         const card = document.getElementById(idd);
@@ -48,6 +49,13 @@ function showOnly(id){
        const dash_int = document.getElementById("dash-int");
        dash_int.innerText = int_jobCard.length;
 
+    // - reject update
+       const reject_check_len = reject.querySelectorAll(`#${idd}`).length;
+       const reject_job = document.getElementById("rejected");
+       const reject_jobCard = reject_job.querySelectorAll(".job-card");
+       const dash_rjct = document.getElementById("dash_rjct");
+       dash_rjct.innerText = reject_jobCard.length - reject_check_len;
+
    }
 
    //click on rejected button of job-card
@@ -56,6 +64,12 @@ function showOnly(id){
        const selected = document.getElementById(id);
        selected.classList.remove("hidden");
        selected.innerText = "REJECTED";
+
+       const interview = document.getElementById("interview");
+       const interview_check = interview.querySelector(`#${idd}`);
+       if(interview_check){
+           interview_check.remove();
+       }
       
      //2-add it on interview section
         const reject_job = document.getElementById(iddd);
@@ -68,6 +82,13 @@ function showOnly(id){
        const reject_jobCard = reject_job.querySelectorAll(".job-card");
        const dash_rjct = document.getElementById("dash_rjct");
        dash_rjct.innerText = reject_jobCard.length;
+
+    // - interview update
+       const int_check_len = interview.querySelectorAll(`#${idd}`).length;
+       const int_job = document.getElementById("interview");
+       const int_jobCard = int_job.querySelectorAll(".job-card");
+       const dash_int = document.getElementById("dash-int");
+       dash_int.innerText = int_jobCard.length - int_check_len;      
    }
    
 //remove null job section if job find in interview or rejected
@@ -80,6 +101,7 @@ function showOnly(id){
      const available_job = document.getElementById("available_job");
      available_job.innerText = find.length;
   }
+  
   //interview
   document.getElementById("btn_int").addEventListener('click',function(){
      showOnly("interview");
@@ -102,8 +124,12 @@ function showOnly(id){
      available_job.innerText = total_job.length
   })
 
-  
- 
+     
+ //Delete card 
+  function delet(id){
+     const trash = document.getElementById(id);
+     trash.remove();
+  }
 
 
     
