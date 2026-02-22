@@ -1,9 +1,18 @@
 1. What is the difference between getElementById, getElementsByClassName, and querySelector / querySelectorAll?
   Solution:
 
-     getElementById                            getElementsByClassName                              querySelector                        querySelectorAll
-Selects only one element by              Selects a group of elements inder the           Selects only first element of              Selects all elements of 
-using unique ID.                          same class.                                    css selector that match.                   css selector that match.
+            getElementById
+   Selects only one element by using unique ID.
+
+           getElementsByClassName
+   Selects a group of elements under the same class.
+
+              querySelector
+   Selects only first element of css selector that match.
+   
+             querySelectorAll
+   Selects all elements of css selector that match.
+                                                                               
 
 
 
@@ -38,15 +47,25 @@ Simplification of code
 
 5.What is the difference between preventDefault() and stopPropagation() methods?
 Solution:
-                    preventDefault()                                                            stopPropagation()
-             Stops default behaviour of an element                                           Stops event bubbling up
-    Example: form.addEventListener("submit", function(event){                 Example: <div id="parent" > <button id="child"> Click </button> </div>
-             event.preventDefault();                                           documnent.getElementById("paernt").addEventListener("click",function(){ 
-    });                                                                          alert("Parent clicked");})
-    form will not submit. it also stops:                                      document.getElementById("child").addEventListener("click",function(){
-                                  ->link navigation                             alert("Button Clicked"); })
-                                  ->checkbox
-                                                                                parent event will not trigger due to stopPropagation();
+
+                   preventDefault()  
+   Stops default behaviour of an element    
+   Example: form.addEventListener("submit", function(event){ 
+   event.preventDefault(); });                               
+   form will not submit. it also stops: 
+                                       ->link navigation
+                                       ->checkbox
+                                                      
+                
+                stopPropagation()
+   Stops event bubbling up .  
+   Example: <div id="parent" > <button id="child"> Click </button> </div>
+   documnent.getElementById("paernt").addEventListener("click",function(){ 
+   alert("Parent clicked");})
+   document.getElementById("child").addEventListener("click",function(){
+   alert("Button Clicked"); })
+                                  
+   parent event will not trigger due to stopPropagation();
 
 
 
