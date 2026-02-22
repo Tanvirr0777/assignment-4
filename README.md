@@ -15,13 +15,12 @@
                                                                                
 
 
-
 2.How do you create and insert a new element into the DOM?
 Solution:
-get a parent element : const parent = document.getElementById("container");
-create a new element : const newElement = document.createElement("h1");
-add content : newElement.innerText = "Simple easy assignment"
-append child to parent: parent.append(newElement);
+1. get a parent element : const parent = document.getElementById("container");
+2. create a new element : const newElement = document.createElement("h1");
+3. add content : newElement.innerText = "Simple easy assignment"
+4. append child to parent: parent.append(newElement);
 
 
 
@@ -36,9 +35,9 @@ Example : A Button clicked then:
 4. What is Event Delegation in JavaScript? Why is it useful?
 Solution:
 Event delegation is a process to use single event listener in parent elements instead of multiple evnets listener in child elements.
-->apply event listener on parent element
-->then identify the target child element using (.target() )
-->then control event listener
+1. apply event listener on parent element
+2. then identify the target child element using (.target() )
+3. then control event listener
 
 Reduce number of event listeners
 Improves performence
@@ -53,8 +52,8 @@ Solution:
    Example: form.addEventListener("submit", function(event){ 
    event.preventDefault(); });                               
    form will not submit. it also stops: 
-                                       ->link navigation
-                                       ->checkbox
+                                       1.link navigation
+                                       2.checkbox
                                                       
                 
                 stopPropagation()
