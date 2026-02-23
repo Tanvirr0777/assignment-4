@@ -163,11 +163,9 @@ function showOnly(id){
      
  //Delete card 
   function delet(id){
-     
      const trash = document.getElementById(id);
+     const parent  = trash.parentElement.id;
      trash.remove(); 
-
-      const parent  = trash.parentElement.id;
 
      //dash all
       const total = document.getElementById("all");
