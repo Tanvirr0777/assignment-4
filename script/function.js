@@ -162,12 +162,10 @@ function showOnly(id){
 
      
  //Delete card 
-  function delet(id){
+  function delet(id,nem){
      const trash = document.getElementById(id);
      const parent  = trash.parentElement.id;
-     trash.remove();
-
-       
+     trash.remove(); 
 
      //dash all
       const total = document.getElementById("all");
@@ -216,7 +214,7 @@ function showOnly(id){
           reject_job.append(visi_i);
       }
 
-          const doc = document.getElementById("int_1");
+          const doc = document.getElementById(nem);
           doc.classList.add("hidden");
   }
  
