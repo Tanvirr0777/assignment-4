@@ -67,11 +67,12 @@ function showOnly(id){
        const dash_rjct = document.getElementById("dash_rjct");
        dash_rjct.innerText = reject_jobCard.length - reject_check_len;
 
-       if(dash_rjct.innerText == 0 && reject_job.children.length == 0){
+       console.log(dash_rjct.innerText);
+       if(Number(dash_rjct.innerText)== 0 && reject_jobCard.length == 0){
           const visi_i = document.getElementById("null_job_temp");
           visi_i.classList.remove("hidden");
           reject_job.append(visi_i);
-       }
+      }
    }
 
    //click on rejected button of job-card
@@ -115,7 +116,8 @@ function showOnly(id){
        const dash_int = document.getElementById("dash-int");
        dash_int.innerText = int_jobCard.length - int_check_len;
       
-       if(dash_int.innerText == 0 && int_job.children.length == 0){
+       console.log( dash_int.innerText);
+       if(Number(dash_int.innerText)== 0 && int_jobCard.length == 0){
          const visi_i = document.getElementById("null_job_temp");
           visi_i.classList.remove("hidden");
           int_job.append(visi_i);
