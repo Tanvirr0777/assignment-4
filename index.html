@@ -44,7 +44,7 @@
 
         <div class="card-body mx-auto w-[80%] lg:w-[360px] shadow">
          <p class="title">Rejected
-         <h1 id="dash_rjct" class="font-bold text-red-500"><span>0</span></h1>
+         <h1 id="dash_rjct" class="font-bold text-red-500">0</h1>
        </div>
 
     </div>
@@ -72,8 +72,8 @@
         <button id="btn_rjct" class="btn w-20 text-gray-500 hover:bg-primary hover:text-white">Rejected</button>
        </div>
 
-       <section id="all" class="mb-5"> 
-        <div class="space-y-4">
+       <section  class="mb-5"> 
+        <div id="all" class="space-y-4">
 
         <div id="card_1" class="job-card bg-white p-6 rounded-md border border-gray-200">
         <div class="mb-5 flex justify-between">
@@ -83,7 +83,7 @@
             </div>
             <button onclick="delet('card_1')" class="btn rounded-full p-2 bg-gray-100 w-9 h-10 
                  hover:bg-primary hover:text-white">
-               <i class="fa-regular fa-trash-can "></i>
+                <i class="fa-regular fa-trash-can "></i>
            </button>
         </div>
 
@@ -269,8 +269,10 @@
       </section>
 
       <section id="interview" class="hidden">
-       <div id="null_job_int" class="null_int hero bg-base-200 rounded-md">
-          <div class="hero-content text-center my-[111px] flex-col gap-5">
+       
+        <div id="null_job_int" class="null_int hero bg-base-200 rounded-md">
+         
+        <div class="hero-content text-center my-[111px] flex-col gap-5">
              <div>
                 <img class="w-[100px]" src="B13-A4-PH-Job-Tracker/jobs.png" alt="">
              </div>
@@ -280,10 +282,24 @@
            </div>
           </div>
        </div>
+
+       <div id="null_job_int_temp" class="null_int hero bg-base-200 rounded-md hidden">
+         
+        <div class="hero-content text-center my-[111px] flex-col gap-5">
+             <div>
+                <img class="w-[100px]" src="B13-A4-PH-Job-Tracker/jobs.png" alt="">
+             </div>
+            <div class="">
+              <h1 class="text-2xl font-bold mb-1">No jobs available</h1>
+              <p class="text-gray-500"> Check back soon for new job opportunities </p>
+           </div>
+          </div>
+       </div>
+       
       </section>
 
       <section id="rejected" class="hidden">
-
+      
        <div id="null_job_rjct" class="hero bg-base-200 rounded-md">
           <div class="hero-content text-center my-[111px] flex-col gap-5">
              <div>
@@ -294,13 +310,35 @@
               <p class="text-gray-500"> Check back soon for new job opportunities </p>
            </div>
           </div>
-       </div>
-
-       
-
+       </div> 
+       <div id="null_job_rjct_temp" class="hero bg-base-200 rounded-md hidden">
+          <div class="hero-content text-center my-[111px] flex-col gap-5">
+             <div>
+                <img class="w-[100px]" src="B13-A4-PH-Job-Tracker/jobs.png" alt="">
+             </div>
+            <div class="">
+              <h1 class="text-2xl font-bold mb-1">No jobs available</h1>
+              <p class="text-gray-500"> Check back soon for new job opportunities </p>
+           </div>
+          </div>
+       </div> 
       </section>
 
     </main>
+
+     <div id="null_job_temp" class="hidden hero bg-base-200 rounded-md lg:w-[70%] mx-auto ">
+          <div class="hero-content text-center my-[111px] flex-col gap-5">
+             <div>
+                <img class="w-[100px]" src="B13-A4-PH-Job-Tracker/jobs.png" alt="">
+             </div>
+            <div class="">
+              <h1 class="text-2xl font-bold mb-1">No jobs available</h1>
+              <p class="text-gray-500"> Check back soon for new job opportunities </p>
+           </div>
+          </div>
+       </div>
+
+    
 
     <script src="script/function.js"></script>
 </body>

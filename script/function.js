@@ -31,18 +31,26 @@ function showOnly(id){
        selected.innerText = "INTERVIEW";
       
        const reject = document.getElementById("rejected");
-       const reject_check = reject.querySelector(`#${idd}`);
-       if(reject_check){
-           reject_check.remove();
-       }
     
      //2-add it on interview section
         const int_job = document.getElementById(iddd);
         const card = document.getElementById(idd);
-        if(!int_job.querySelector(`#${idd}`)){
+
+        if(!int_job.querySelector(`#${idd}_int`)){
+
             const cardClone = card.cloneNode(true);
+            cardClone.id = idd + "_int";
+
+            const deleteBtn = cardClone.querySelector("button[onclick^='delet']");
+            deleteBtn.setAttribute("onclick", `delet('${cardClone.id}')`);
+            
             int_job.append(cardClone);
+            
         }
+        const reject_check = reject.querySelector(`[id^="${idd}"]`);
+       if(reject_check){
+           reject_check.remove();
+       }
 
     //update interview dashbord
        const int_jobCard = int_job.querySelectorAll(".job-card");
@@ -66,18 +74,27 @@ function showOnly(id){
        selected.innerText = "REJECTED";
 
        const interview = document.getElementById("interview");
-       const interview_check = interview.querySelector(`#${idd}`);
-       if(interview_check){
-           interview_check.remove();
-       }
       
      //2-add it on interview section
         const reject_job = document.getElementById(iddd);
         const card = document.getElementById(idd);
-       if(!reject_job.querySelector(`#${idd}`)){
-         const cardClone = card.cloneNode(true);
-         reject_job.append(cardClone);
+        
+       if(!reject_job.querySelector(`#${idd}_int`)){
+
+            const cardClone = card.cloneNode(true);
+            cardClone.id = idd + "_int";
+
+            const deleteBtn = cardClone.querySelector("button[onclick^='delet']");
+            deleteBtn.setAttribute("onclick", `delet('${cardClone.id}')`);
+            
+            reject_job.append(cardClone);
+            
+        }
+        const interview_check = interview.querySelector(`[id^="${idd}"]`);
+        if(interview_check){
+           interview_check.remove();
        }
+
     //update rejected dashbord
        const reject_jobCard = reject_job.querySelectorAll(".job-card");
        const dash_rjct = document.getElementById("dash_rjct");
@@ -88,7 +105,8 @@ function showOnly(id){
        const int_job = document.getElementById("interview");
        const int_jobCard = int_job.querySelectorAll(".job-card");
        const dash_int = document.getElementById("dash-int");
-       dash_int.innerText = int_jobCard.length - int_check_len;      
+       dash_int.innerText = int_jobCard.length - int_check_len;
+    
    }
    
 //remove null job section if job find in interview or rejected
@@ -106,7 +124,7 @@ function showOnly(id){
   document.getElementById("btn_int").addEventListener('click',function(){
      showOnly("interview");
      const null_job = document.getElementById("null_job_int");
-     removeNull("interview",null_job);
+     removeNull("interview",null_job); 
   });
 //rejected
   document.getElementById("btn_rjct").addEventListener('click',function(){
@@ -121,15 +139,73 @@ function showOnly(id){
      const total = document.getElementById("all");
      const total_job = total.querySelectorAll(".job-card");
      const available_job = document.getElementById("available_job");
-     available_job.innerText = total_job.length
+     available_job.innerText = total_job.length;
   })
 
      
  //Delete card 
   function delet(id){
      const trash = document.getElementById(id);
+     const parent  = trash.parentElement.id;
      trash.remove();
+     
+     //dash all
+      const total = document.getElementById("all");
+      const total_job = total.querySelectorAll(".job-card");
+      dash_all.innerText = total_job.length;
+
+      if(parent == "all" && total.querySelectorAll(`#${id}`) !== 0 ){
+          const available_job = document.getElementById("available_job");
+          available_job.innerText = total_job.length ; 
+      }
+     
+    //dash int
+     const int_job = document.getElementById("interview");
+     const int_jobCard = int_job.querySelectorAll(".job-card");
+     const dash_int = document.getElementById("dash-int");
+     dash_int.innerText = int_jobCard.length; 
+
+     if(parent == "interview" && int_job.querySelectorAll(`#${id}`) !== 0 ){
+          const available_job = document.getElementById("available_job");
+          available_job.innerText = int_jobCard.length ; 
+      }
+     
+    //dash rejected 
+       const reject_job = document.getElementById("rejected");
+       const reject_jobCard = reject_job.querySelectorAll(".job-card");
+       const dash_rjct = document.getElementById("dash_rjct");
+       dash_rjct.innerText = reject_jobCard.length;
+
+      if(parent == "rejected" && reject_job.querySelectorAll(`#${id}`) !== 0 ){
+          const available_job = document.getElementById("available_job");
+          available_job.innerText = reject_jobCard.length ; 
+      }
+
+    null_j();
+  }
+   
+  function null_j(){
+    const null_job = document.getElementById("null_job_temp");
+
+    const dash_all = document.getElementById("dash-all").innerText;
+    const dash_int = document.getElementById("dash-int").innerText;
+    const dash_rjct = document.getElementById("dash_rjct").innerText;
+    console.log(dash_rjct);
+
+    if(Number(dash_all) === 0){
+        null_job.classList.remove("hidden");
+    }
+    if(Number(dash_int) === 0){
+        const null_job_ = document.getElementById("null_job_int_temp");
+        null_job_.classList.remove("hidden");
+    }
+    if(Number(dash_rjct) === 0){
+        const null_rjct = document.getElementById("null_job_rjct_temp");
+        null_rjct.classList.remove("hidden");
+    }
   }
 
 
+ 
+     
     
