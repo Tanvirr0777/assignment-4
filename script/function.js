@@ -31,6 +31,9 @@ function showOnly(id){
        selected.innerText = "INTERVIEW";
       
        const reject = document.getElementById("rejected");
+
+       
+       //removeNull("interview",null_job);
     
      //2-add it on interview section
         const int_job = document.getElementById(iddd);
@@ -64,6 +67,11 @@ function showOnly(id){
        const dash_rjct = document.getElementById("dash_rjct");
        dash_rjct.innerText = reject_jobCard.length - reject_check_len;
 
+       if(dash_rjct.innerText == 0 && reject_job.children.length == 0){
+          const visi_i = document.getElementById("null_job_temp");
+          visi_i.classList.remove("hidden");
+          reject_job.append(visi_i);
+       }
    }
 
    //click on rejected button of job-card
@@ -106,7 +114,13 @@ function showOnly(id){
        const int_jobCard = int_job.querySelectorAll(".job-card");
        const dash_int = document.getElementById("dash-int");
        dash_int.innerText = int_jobCard.length - int_check_len;
-    
+      
+       if(dash_int.innerText == 0 && int_job.children.length == 0){
+         const visi_i = document.getElementById("null_job_temp");
+          visi_i.classList.remove("hidden");
+          int_job.append(visi_i);
+       }
+      
    }
    
 //remove null job section if job find in interview or rejected
@@ -123,14 +137,18 @@ function showOnly(id){
   //interview
   document.getElementById("btn_int").addEventListener('click',function(){
      showOnly("interview");
-     const null_job = document.getElementById("null_job_int");
-     removeNull("interview",null_job); 
+     const null_job = document.getElementById("null_job_int_temp");
+     removeNull("interview",null_job);
+     const nuull = document.getElementById("null_job_temp");
+     removeNull("interview",nuull); 
   });
 //rejected
   document.getElementById("btn_rjct").addEventListener('click',function(){
      showOnly("rejected");
-     const null_job_rj = document.getElementById("null_job_rjct");
+     const null_job_rj = document.getElementById("null_job_rcjt_temp");
      removeNull("rejected",null_job_rj);
+     const nuull = document.getElementById("null_job_temp");
+     removeNull("rejected",nuull);
   });
 //all
   document.getElementById("btn_all")
@@ -148,7 +166,9 @@ function showOnly(id){
      const trash = document.getElementById(id);
      const parent  = trash.parentElement.id;
      trash.remove();
-     
+
+       
+
      //dash all
       const total = document.getElementById("all");
       const total_job = total.querySelectorAll(".job-card");
@@ -157,6 +177,11 @@ function showOnly(id){
       if(parent == "all" && total.querySelectorAll(`#${id}`) !== 0 ){
           const available_job = document.getElementById("available_job");
           available_job.innerText = total_job.length ; 
+      }
+      if(parent == "all" && total_job.length == 0){
+          const visi_i = document.getElementById("null_job_temp");
+          visi_i.classList.remove("hidden");
+          total.append(visi_i);
       }
      
     //dash int
@@ -169,6 +194,11 @@ function showOnly(id){
           const available_job = document.getElementById("available_job");
           available_job.innerText = int_jobCard.length ; 
       }
+      if(parent == "interview" && int_jobCard.length == 0){
+          const visi_i = document.getElementById("null_job_temp");
+          visi_i.classList.remove("hidden");
+          int_job.append(visi_i);
+      }
      
     //dash rejected 
        const reject_job = document.getElementById("rejected");
@@ -180,32 +210,17 @@ function showOnly(id){
           const available_job = document.getElementById("available_job");
           available_job.innerText = reject_jobCard.length ; 
       }
+      if(parent == "rejected" && reject_jobCard.length == 0){
+          const visi_i = document.getElementById("null_job_temp");
+          visi_i.classList.remove("hidden");
+          reject_job.append(visi_i);
+      }
 
-    null_j();
+          const doc = document.getElementById("int_1");
+          doc.classList.add("hidden");
   }
-   
-  function null_j(){
-    const null_job = document.getElementById("null_job_temp");
-
-    const dash_all = document.getElementById("dash-all").innerText;
-    const dash_int = document.getElementById("dash-int").innerText;
-    const dash_rjct = document.getElementById("dash_rjct").innerText;
-    console.log(dash_rjct);
-
-    if(Number(dash_all) === 0){
-        null_job.classList.remove("hidden");
-    }
-    if(Number(dash_int) === 0){
-        const null_job_ = document.getElementById("null_job_int_temp");
-        null_job_.classList.remove("hidden");
-    }
-    if(Number(dash_rjct) === 0){
-        const null_rjct = document.getElementById("null_job_rjct_temp");
-        null_rjct.classList.remove("hidden");
-    }
-  }
-
-
  
+
+         
      
     
