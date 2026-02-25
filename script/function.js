@@ -7,6 +7,9 @@
      dash_all.innerText = total_job.length;
      const available_job = document.getElementById("available_job");
      available_job.innerText = total_job.length ; 
+
+    const defAll = document.getElementById("btn_all");
+    defAll.classList.add("bg-primary","text-white"); 
           
 
 //show/hidden of ALl-Interview-Button
@@ -67,7 +70,7 @@ function showOnly(id){
        const dash_rjct = document.getElementById("dash_rjct");
        dash_rjct.innerText = reject_jobCard.length - reject_check_len;
 
-       console.log(dash_rjct.innerText);
+       //console.log(dash_rjct.innerText);
        if(Number(dash_rjct.innerText)== 0 && reject_jobCard.length == 0){
           const visi_i = document.getElementById("null_job_temp");
           visi_i.classList.remove("hidden");
@@ -142,7 +145,15 @@ function showOnly(id){
      const null_job = document.getElementById("null_job_int_temp");
      removeNull("interview",null_job);
      const nuull = document.getElementById("null_job_temp");
-     removeNull("interview",nuull); 
+     removeNull("interview",nuull);
+     
+      const defAll = document.getElementById("btn_all");
+      defAll.classList.remove("bg-primary","text-white"); 
+      const rjct_bg = document.getElementById("btn_rjct");
+      rjct_bg.classList.remove("bg-primary","text-white");
+      const int_bg = document.getElementById("btn_int");
+      int_bg.classList.add("bg-primary","text-white"); 
+
   });
 //rejected
   document.getElementById("btn_rjct").addEventListener('click',function(){
@@ -151,6 +162,14 @@ function showOnly(id){
      removeNull("rejected",null_job_rj);
      const nuull = document.getElementById("null_job_temp");
      removeNull("rejected",nuull);
+
+      const defAll = document.getElementById("btn_all");
+      defAll.classList.remove("bg-primary","text-white"); 
+      const int_bg = document.getElementById("btn_int");
+      int_bg.classList.remove("bg-primary","text-white");
+      const rjct_bg = document.getElementById("btn_rjct");
+      rjct_bg.classList.add("bg-primary","text-white");
+
   });
 //all
   document.getElementById("btn_all")
@@ -160,6 +179,14 @@ function showOnly(id){
      const total_job = total.querySelectorAll(".job-card");
      const available_job = document.getElementById("available_job");
      available_job.innerText = total_job.length;
+
+     
+      const int_bg = document.getElementById("btn_int");
+      int_bg.classList.remove("bg-primary","text-white");
+      const rjct_bg = document.getElementById("btn_rjct");
+      rjct_bg.classList.remove("bg-primary","text-white");
+      const defAll = document.getElementById("btn_all");
+      defAll.classList.add("bg-primary","text-white"); 
   })
 
      
@@ -217,6 +244,22 @@ function showOnly(id){
       }
 
   }
+
+//   const x = document.getElementById("all");
+//   for(let i of x.children){
+
+//    id = i.id + "_int";
+//    console.log(id);
+
+       
+//   const int_ = document.getElementById("interview");
+//     if(!int_.querySelector("#" + )){
+//        console.log("False");
+//     }
+//     else{
+//        console.log("True");
+//    }
+//    }
  
 
          
