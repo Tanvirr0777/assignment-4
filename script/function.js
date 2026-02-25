@@ -152,8 +152,8 @@ function showOnly(id){
       const rjct_bg = document.getElementById("btn_rjct");
       rjct_bg.classList.remove("bg-primary","text-white");
       const int_bg = document.getElementById("btn_int");
-      int_bg.classList.add("bg-primary","text-white"); 
-
+      int_bg.classList.add("bg-primary","text-white");
+      
   });
 //rejected
   document.getElementById("btn_rjct").addEventListener('click',function(){
@@ -187,6 +187,30 @@ function showOnly(id){
       rjct_bg.classList.remove("bg-primary","text-white");
       const defAll = document.getElementById("btn_all");
       defAll.classList.add("bg-primary","text-white"); 
+
+
+  const x = document.getElementById("all");
+  const int_ = document.getElementById("interview");
+
+  for(let i=0; i<x.children.length; i++){
+    id_r = x.children[i].id;
+    console.log(id_r);
+    const acess = document.getElementById(id_r); 
+    id = x.children[i].id + "_int";
+
+    if(!int_.querySelector("#" + id)){
+       
+      for(let j of acess.children){
+        if(j.id){
+         console.log(j.id);
+         const stat = document.getElementById(j.id);
+         console.log(stat);
+         stat.classList.add("hidden");
+        }     
+    }
+    }
+   }
+
   })
 
      
@@ -245,21 +269,18 @@ function showOnly(id){
 
   }
 
-//   const x = document.getElementById("all");
-//   for(let i of x.children){
+  const x = document.getElementById("all");
+  const int_ = document.getElementById("interview");
+  for(let i of x.children){
 
-//    id = i.id + "_int";
-//    console.log(id);
+   id = i.id + "_int";
+   //console.log(id);
 
-       
-//   const int_ = document.getElementById("interview");
-//     if(!int_.querySelector("#" + )){
-//        console.log("False");
-//     }
-//     else{
-//        console.log("True");
-//    }
-//    }
+    if(int_.querySelector("#" + id)){
+       console.log("True");
+    }
+    
+   }
  
 
          
