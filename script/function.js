@@ -191,6 +191,7 @@ function showOnly(id){
 
   const x = document.getElementById("all");
   const int_ = document.getElementById("interview");
+  const rjct_= document.getElementById("rejected");
 
   for(let i=0; i<x.children.length; i++){
     id_r = x.children[i].id;
@@ -198,7 +199,7 @@ function showOnly(id){
     const acess = document.getElementById(id_r); 
     id = x.children[i].id + "_int";
 
-    if(!int_.querySelector("#" + id)){
+    if(!int_.querySelector("#" + id) && !rjct_.querySelector("#" + id)){
        
       for(let j of acess.children){
         if(j.id){
